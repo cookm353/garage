@@ -52,12 +52,11 @@ class Garage {
         this.capacity = capacity;
     }
     add(vehicle) {
-        const { vehicles, capacity, vehiclesStored } = this;
-        const validObjects = ["Vehicle", "Car", "Motorcycle"]
+        const { vehicles, capacity } = this;
         
         if ( vehicles.length === capacity ) {
             return "Sorry, we're full.";
-        } else if (validObjects.indexOf(vehicle.constructor.name) === -1) {
+        } else if (!(vehicle instanceof Vehicle)) {
             return "Only vehicles are allowed in here!"
         } else {
             vehicles.push(vehicle);
